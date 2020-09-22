@@ -9,6 +9,7 @@ export const useCategoriesStyles = makeStyles({
     width: '100%',
     height: '170px',
     cursor: 'pointer',
+    outline: 'none',
     transition: 'all .2s',
     '&:hover': {
       background: '#0c1215',
