@@ -1,7 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import DialogContent from '@material-ui/core/DialogContent';
+import Dialog from '@material-ui/core/Dialog';
+import Slide from '@material-ui/core/Slide';
+import { TransitionProps } from '@material-ui/core/transitions';
 import classNames from 'classnames';
 import { getMovies } from 'models/movies';
 import { Card } from 'components/movieCard';
+import { MovieDetails } from 'components/movieDetails';
 import { SmallLoader } from 'components/loader/SmallLoader';
 import { useAppDispatch } from 'store';
 import {
@@ -12,7 +17,15 @@ import {
   useMoviesIsRejectedSelector,
 } from 'models/movies/selectors';
 import emoji from 'components/icons/Emoji.svg';
+import { Entry } from 'schemas/movieList';
 import { useStyles } from './Home.styles';
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement },
+  ref,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export const Home = () => {
   const classes = useStyles();
@@ -22,6 +35,8 @@ export const Home = () => {
   const searchbleString = useSearchbleStringSelectorSelector();
   const isPending = useMoviesIsPendingSelector();
   const isRejected = useMoviesIsRejectedSelector();
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [movieToDetails, setMovieToDetails] = useState<Entry | null>(null);
   const wrapper = useRef<HTMLDivElement>(null);
   const isMoviesAvailable = movies.length;
   const movieCardWidth = 300;
@@ -32,7 +47,9 @@ export const Home = () => {
       (movie.category.attributes.term === activeCategory ||
         activeCategory === 'All') &&
       (searchbleString === '' ||
-        movie['im:name'].label.toLowerCase().includes(searchbleString)),
+        movie['im:name'].label
+          .toLowerCase()
+          .includes(searchbleString.toLowerCase())),
   );
   const isMoviesSearchResult = !!moviesToShow.length;
 
@@ -55,6 +72,16 @@ export const Home = () => {
     }
   };
 
+  const openMovieDetails = (movie: Entry) => {
+    setMovieToDetails(movie);
+    setModalIsOpen(true);
+  };
+
+  const closeMovieDetails = () => {
+    setMovieToDetails(null);
+    setModalIsOpen(false);
+  };
+
   return (
     <div
       ref={wrapper}
@@ -65,7 +92,11 @@ export const Home = () => {
     >
       {isMoviesSearchResult
         ? moviesToShow.map((movie) => (
-            <Card key={movie.id.attributes['im:id']} movie={movie} />
+            <Card
+              cardClick={() => openMovieDetails(movie)}
+              key={movie.id.attributes['im:id']}
+              movie={movie}
+            />
           ))
         : null}
       {!isMoviesSearchResult && isMoviesAvailable ? (
@@ -83,6 +114,22 @@ export const Home = () => {
       {isRejected && isMoviesSearchResult && activeCategory === 'All' ? (
         <div className={classes.preloader}>More movies coming soon</div>
       ) : null}
+      <Dialog
+        open={modalIsOpen}
+        TransitionComponent={Transition}
+        onClose={closeMovieDetails}
+      >
+        <DialogContent
+          classes={{
+            root: classes.modalContent,
+          }}
+        >
+          <MovieDetails
+            movie={movieToDetails}
+            closeHandler={closeMovieDetails}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

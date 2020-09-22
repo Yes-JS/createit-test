@@ -4,9 +4,13 @@ import { useCategoriesStyles } from './MovieCard.styles';
 
 interface ICardProps {
   movie: Entry;
+  cardClick: () => void;
 }
 
-export const Card: React.FunctionComponent<ICardProps> = ({ movie }) => {
+export const Card: React.FunctionComponent<ICardProps> = ({
+  movie,
+  cardClick,
+}) => {
   const classes = useCategoriesStyles();
 
   const releaseDate = new Date(movie['im:releaseDate'].label);
@@ -14,7 +18,12 @@ export const Card: React.FunctionComponent<ICardProps> = ({ movie }) => {
   const genre = movie.category.attributes.term;
 
   return (
-    <div className={classes.card}>
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={cardClick}
+      className={classes.card}
+    >
       <img alt="movie cover" src={movie['im:image'][2].label} />
       <div className={classes.infoWrapper}>
         <span className={classes.name}>{movie['im:name'].label}</span>

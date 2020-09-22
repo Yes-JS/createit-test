@@ -5,12 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const render = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById('root'),
-  );
+  ReactDOM.render(<App />, document.getElementById('root'));
 };
 
 render();
