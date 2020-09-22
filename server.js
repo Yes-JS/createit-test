@@ -2,6 +2,7 @@ const express = require('express');
 const favicon = require('express-favicon');
 const path = require('path');
 const port = process.env.PORT || 8080;
+require('heroku-self-ping').default("https://createit-test.herokuapp.com/");
 
 const app = express();
 app.use(favicon(__dirname + '/build/favicon.ico'));

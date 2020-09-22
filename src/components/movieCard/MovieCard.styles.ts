@@ -7,6 +7,7 @@ export const useCategoriesStyles = makeStyles({
     gridTemplateRows: '1fr',
     background: '#182227',
     width: '100%',
+    height: '170px',
     cursor: 'pointer',
     transition: 'all .2s',
     '&:hover': {
