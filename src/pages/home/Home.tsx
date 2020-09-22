@@ -23,6 +23,7 @@ export const Home = () => {
   const isPending = useMoviesIsPendingSelector();
   const isRejected = useMoviesIsRejectedSelector();
   const wrapper = useRef<HTMLDivElement>(null);
+  const isMoviesAvailable = movies.length;
   const movieCardWidth = 300;
   const movieCardHeight = 170;
 
@@ -33,7 +34,7 @@ export const Home = () => {
       (searchbleString === '' ||
         movie['im:name'].label.toLowerCase().includes(searchbleString)),
   );
-  const isMoviesAvaileble = !!moviesToShow.length;
+  const isMoviesSearchResult = !!moviesToShow.length;
 
   React.useEffect(() => {
     const scrolledBlock: HTMLDivElement | null = wrapper.current;
@@ -62,23 +63,24 @@ export const Home = () => {
       })}
       onScroll={(e) => scrollHandler(e)}
     >
-      {isMoviesAvaileble ? (
-        moviesToShow.map((movie) => (
-          <Card key={movie.id.attributes['im:id']} movie={movie} />
-        ))
-      ) : (
+      {isMoviesSearchResult
+        ? moviesToShow.map((movie) => (
+            <Card key={movie.id.attributes['im:id']} movie={movie} />
+          ))
+        : null}
+      {!isMoviesSearchResult && isMoviesAvailable ? (
         <div className={classes.noMovies}>
           <span className="title">{`No results with '${searchbleString}'`}</span>
           <img className={classes.emoji} alt="emoji" src={emoji} />
           <span className="subtitle">Try something else.</span>
         </div>
-      )}
-      {isPending && isMoviesAvaileble && activeCategory === 'All' ? (
+      ) : null}
+      {isPending && isMoviesSearchResult && activeCategory === 'All' ? (
         <div className={classes.preloader}>
           <SmallLoader />
         </div>
       ) : null}
-      {isRejected && isMoviesAvaileble && activeCategory === 'All' ? (
+      {isRejected && isMoviesSearchResult && activeCategory === 'All' ? (
         <div className={classes.preloader}>More movies coming soon</div>
       ) : null}
     </div>
