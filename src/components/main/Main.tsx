@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SideMenu } from 'components/SideMenu';
+import { SideBar } from 'components/SideBar';
 import { Header } from 'components/header';
 import { useStyles } from './Main.styles';
 
@@ -14,7 +14,7 @@ export const Main: React.FunctionComponent<IMain> = ({ children }: IMain) => {
   return (
     <div className={`${classes.main}`}>
       <div className={classes.menu}>
-        <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+        <SideBar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       </div>
       <div className={classes.contentWrapper}>
         <div className={classes.headerContent}>

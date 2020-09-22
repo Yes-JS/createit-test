@@ -6,14 +6,14 @@ import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
 import { useTheme } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import { useStyles } from './SideMenu.styles';
+import { useStyles } from './SideBar.styles';
 
 interface IMain {
   mobileOpen: boolean;
   setMobileOpen: (mobileOpen: boolean) => void;
 }
 
-export const SideMenu: React.FunctionComponent<IMain> = ({
+export const SideBar: React.FunctionComponent<IMain> = ({
   mobileOpen,
   setMobileOpen,
 }: IMain) => {
