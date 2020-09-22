@@ -1,10 +1,5 @@
 import { AxiosResponse } from 'axios';
-import {
-  createSlice,
-  createAsyncThunk,
-  PayloadAction,
-  createAction,
-} from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { createAsyncReducers } from 'utils/createAsyncReducers';
 import { requestWithoutAuth } from 'utils/request';
 // eslint-disable-next-line import/named
