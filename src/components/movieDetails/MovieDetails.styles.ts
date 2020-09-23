@@ -16,6 +16,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       right: '10px',
       zIndex: 50,
       outline: 'none',
+      cursor: 'pointer',
     },
     price: {
       fontSize: 16,
@@ -27,9 +28,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       color: 'white',
       outline: 'none',
       background: 'transparent',
-      border: '2px solid #454b4e',
+      border: '2px solid #0fcebc',
+      transition: 'all 0.1s',
       '&:hover': {
-        background: '#454b4e',
+        background: '#0fcebc',
       },
     },
     summary: {

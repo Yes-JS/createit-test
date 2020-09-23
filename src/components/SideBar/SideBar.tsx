@@ -24,7 +24,7 @@ export const SideBar: React.FunctionComponent<IMain> = ({
   };
 
   const drawer = (
-    <div>
+    <div className={classes.wrapper}>
       <div className={classNames(classes.toolbar, classes.headerLogo)}>
         Movix
       </div>
