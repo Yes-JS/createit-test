@@ -60,8 +60,25 @@ export const useStyles = makeStyles((theme: Theme) =>
         padding: 0,
       },
     },
-    modalPaper: {
-      background: 'red',
+    randomButton: {
+      padding: '10px 15px',
+      position: 'absolute',
+      bottom: '10px',
+      right: '10px',
+      display: 'grid',
+      gridTemplateColumns: 'max-content max-content',
+      alignItems: 'center',
+      gridGap: '5px',
+      fontSize: '15px',
+      background: '#0fcebc',
+      color: 'white',
+      borderRadius: '22px',
+      border: 'none',
+      outline: 'none',
+      cursor: 'pointer',
+      '&:hover': {
+        background: '#0eb4a4',
+      },
     },
   }),
 );

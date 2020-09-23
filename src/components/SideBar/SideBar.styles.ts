@@ -4,6 +4,10 @@ const drawerWidth = 240;
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    wrapper: {
+      height: '100%',
+      background: '#182227',
+    },
     drawer: {
       [theme.breakpoints.up('sm')]: {
         width: drawerWidth,

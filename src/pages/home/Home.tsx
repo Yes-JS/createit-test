@@ -3,6 +3,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
+import StarsIcon from '@material-ui/icons/Stars';
 import classNames from 'classnames';
 import { getMovies } from 'models/movies';
 import { Card } from 'components/movieCard';
@@ -52,6 +53,10 @@ export const Home = () => {
           .includes(searchbleString.toLowerCase())),
   );
   const isMoviesSearchResult = !!moviesToShow.length;
+
+  const getRandomMivie = () => {
+    return moviesToShow[Math.floor(Math.random() * moviesToShow.length)];
+  };
 
   React.useEffect(() => {
     const scrolledBlock: HTMLDivElement | null = wrapper.current;
@@ -130,6 +135,16 @@ export const Home = () => {
           />
         </DialogContent>
       </Dialog>
+      {isMoviesSearchResult && moviesToShow.length > 1 ? (
+        <button
+          type="button"
+          className={classes.randomButton}
+          onClick={() => openMovieDetails(getRandomMivie())}
+        >
+          <StarsIcon />
+          <span>Random movie</span>
+        </button>
+      ) : null}
     </div>
   );
 };
