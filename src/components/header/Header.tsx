@@ -1,17 +1,16 @@
 import * as React from 'react';
-import './header-styles.scss';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { searchMovie } from 'models/movies';
-import { useStyles } from './Header.styles';
-import { useAppDispatch } from '../../store';
 import {
   useActiveCategorySelector,
-  useSearchbleStringSelectorSelector,
-} from '../../models/movies/selectors';
+  useSearchbleStringSelector,
+} from 'models/movies/selectors';
+import { useAppDispatch } from 'store';
+import { useStyles } from './Header.styles';
 
 interface IHeaderProps {
   mobileOpen: boolean;
@@ -25,7 +24,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = ({
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const activeCategory = useActiveCategorySelector();
-  const searchbleString = useSearchbleStringSelectorSelector();
+  const searchbleString = useSearchbleStringSelector();
 
   const handleSearch = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,

@@ -48,5 +48,5 @@ export const useMoviesIsRejectedSelector = () =>
 export const useCategoriesSelector = () => useSelector(categoriesSelector);
 export const useActiveCategorySelector = () =>
   useSelector(activeCategorySelector);
-export const useSearchbleStringSelectorSelector = () =>
+export const useSearchbleStringSelector = () =>
   useSelector(searchbleStringSelector);

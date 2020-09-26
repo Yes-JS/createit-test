@@ -2,7 +2,6 @@ import { AxiosResponse } from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { createAsyncReducers } from 'utils/createAsyncReducers';
 import { requestWithoutAuth } from 'utils/request';
-// eslint-disable-next-line import/named
 import { Entry } from 'schemas/movieList';
 import { name } from './constants';
 

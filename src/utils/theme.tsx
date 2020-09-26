@@ -25,5 +25,16 @@ export default createMuiTheme({
         padding: '12px 32px 12px 16px',
       },
     },
+    MuiBackdrop: {
+      root: {
+        backgroundColor: '#000000e3',
+      },
+    },
+    MuiDialog: {
+      paper: {
+        borderRadius: '8px',
+        margin: '0 20px',
+      },
+    },
   },
 });

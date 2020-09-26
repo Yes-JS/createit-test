@@ -13,7 +13,7 @@ import { useAppDispatch } from 'store';
 import {
   useMoviesDataSelector,
   useActiveCategorySelector,
-  useSearchbleStringSelectorSelector,
+  useSearchbleStringSelector,
   useMoviesIsPendingSelector,
   useMoviesIsRejectedSelector,
 } from 'models/movies/selectors';
@@ -23,7 +23,7 @@ import { useStyles } from './Home.styles';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children?: React.ReactElement },
-  ref,
+  ref: ((instance: unknown) => void) | React.MutableRefObject<unknown> | null,
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -33,7 +33,7 @@ export const Home = () => {
   const dispatch = useAppDispatch();
   const { movies } = useMoviesDataSelector();
   const activeCategory = useActiveCategorySelector();
-  const searchbleString = useSearchbleStringSelectorSelector();
+  const searchbleString = useSearchbleStringSelector();
   const isPending = useMoviesIsPendingSelector();
   const isRejected = useMoviesIsRejectedSelector();
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
