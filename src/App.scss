@@ -3,36 +3,22 @@
 html {
   scrollbar-color: #0f1e278a transparent;
   scrollbar-width: thin;
-}
 
-.MuiDialog-paper {
-  position: unset !important;
-  width: calc(100vw - 30px);
-}
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
 
-.MuiBackdrop-root {
-  background-color: #000000e3 !important;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-.MuiPaper-root {
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: transparent !important;
-}
+  ::-webkit-scrollbar-thumb {
+    background: #0f1e278a;
+    border-radius: 5px;
+  }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #0f1e278a;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #4d5961;
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4d5961;
+  }
 }

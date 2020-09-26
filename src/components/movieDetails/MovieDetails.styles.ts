@@ -50,8 +50,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     videoShadow: {
       cursor: 'pointer',
       outline: 'none',
-      // @ts-ignore
-      position: 'absolute !important',
+      position: 'absolute',
       width: '100%',
       height: '100%',
       boxShadow: 'inset 1px -20px 8px 0px rgb(12 18 21)',
