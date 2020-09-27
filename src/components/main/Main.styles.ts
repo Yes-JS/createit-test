@@ -26,15 +26,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     main: {
-      position: 'fixed',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
+      overflow: 'hidden',
       display: 'grid',
       gridTemplateColumns: 'max-content 1fr',
       gridTemplateRows: '1fr',
-      minHeight: '100vh',
       background:
         'radial-gradient(150% 100% at 100% 50%, #354b57 0%, #17222a 100%);',
     },
