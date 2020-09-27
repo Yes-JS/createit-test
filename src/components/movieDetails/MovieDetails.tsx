@@ -23,14 +23,9 @@ export const MovieDetails: React.FunctionComponent<ICardProps> = ({
   return (
     <div>
       <div className={classes.video}>
-        <video loop ref={movieWrapper} width="100%" autoPlay>
+        <video playsInline loop ref={movieWrapper} width="100%" autoPlay>
           <source src={movie?.link[1].attributes.href} type="video/mp4" />
-          <track
-            src="captions_en.vtt"
-            kind="captions"
-            srcLang="en"
-            label="english_captions"
-          />
+          <track default kind="captions" />
           Your browser does not support the video tag.
         </video>
         <ButtonBase
