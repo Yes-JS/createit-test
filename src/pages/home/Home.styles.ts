@@ -58,9 +58,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     randomButton: {
       padding: '10px 15px',
-      position: 'absolute',
-      bottom: '10px',
-      right: '10px',
+      position: 'fixed',
+      bottom: '15px',
+      right: '15px',
       display: 'grid',
       gridTemplateColumns: 'max-content max-content',
       alignItems: 'center',
