@@ -61,10 +61,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       position: 'fixed',
       bottom: '15px',
       right: '15px',
-      display: 'grid',
-      gridTemplateColumns: 'max-content max-content',
+      display: 'flex',
       alignItems: 'center',
-      gridGap: '5px',
       fontSize: '15px',
       background: '#0fcebc',
       color: 'white',
@@ -74,6 +72,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       cursor: 'pointer',
       '&:hover': {
         background: '#0eb4a4',
+      },
+      '& span': {
+        marginLeft: '5px',
       },
     },
   }),
