@@ -26,6 +26,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     main: {
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
       display: 'grid',
       gridTemplateColumns: 'max-content 1fr',
       gridTemplateRows: '1fr',
