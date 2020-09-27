@@ -13,9 +13,9 @@ export const Main: React.FunctionComponent<IMain> = ({ children }: IMain) => {
 
   return (
     <div className={`${classes.main}`}>
-      <div className={classes.menu}>
+      <nav className={classes.menu}>
         <SideBar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-      </div>
+      </nav>
       <div className={classes.contentWrapper}>
         <div className={classes.headerContent}>
           <Header mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
