@@ -9,7 +9,7 @@ The application is placed on a free heroku machine which falls asleep after 30 m
 Therefore, the first launch can last about a minute.
 
 -------
-#### Sripts:
+#### Scripts:
 
 "start": "react-scripts start" - for local development
 
